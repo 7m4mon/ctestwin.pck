@@ -1,3 +1,7 @@
+''' コールサインを総務省の無線局等情報検索Web-APIで検索 '''
+''' 応答結果から無線局の設置場所取得してリストを作成する '''
+''' 2020/8/8 7M4MON '''
+
 import requests
 import json
 import time
@@ -23,7 +27,7 @@ def get_city(callsign):
         
 if __name__ == '__main__':
     fr = open('./uniq_callsigns.txt', 'r')
-    fw = open('./uniq_callsigns_qth_j.txt', 'a')
+    fw = open('./uniq_callsigns_qth.txt', 'a')
     
     line = fr.readline()
     while line:
