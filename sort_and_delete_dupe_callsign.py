@@ -4,8 +4,8 @@
 callsign_list = []
 callsign_uniq = []
 
-'''コールサインをリストにをロードする'''
-fr = open('./allja_2019-2014_callsign.txt', 'r')
+'''コールサインやパーシャルチェックファイルをリストにをロードする'''
+fr = open('./ctestwin.pck', 'r')
 
 # １行ずつ読み取ってリストに保存
 line = fr.readline()
