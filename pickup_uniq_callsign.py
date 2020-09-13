@@ -25,14 +25,14 @@ def load_pck_list():
 
 if __name__ == '__main__':
     load_pck_list()
-    fr = open('./callsignlist_6m_fd.txt', 'r')
+    fr = open('./2020_allja.txt', 'r')
     line = fr.readline()
     i = 0
     j = 0
     while line:
         callsign = line.strip() # 改行の削除
-        # print (j)   #途中経過確認用
-        # j += 1
+        #print (j)   #途中経過確認用
+        #j += 1
         if uniq_check(callsign) :
             print (callsign)
             i += 1

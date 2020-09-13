@@ -26,7 +26,7 @@ def get_city(callsign):
         
         
 if __name__ == '__main__':
-    fr = open('./uniq_callsigns.txt', 'r')
+    fr = open('./uniq_callsigns.txt', 'r')      # Shift-JIS
     fw = open('./uniq_callsigns_qth.txt', 'a')
     
     line = fr.readline()
