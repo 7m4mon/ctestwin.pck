@@ -37,7 +37,7 @@ read_pck_filename = "./ctestwin_20210416.pck"       # 前回作成したパー�
 write_pck_filename = "./ctestwin_20211024.pck"      # 今回作成するパーシャルチェックファイル名
 new_callsign_filename = "./2021_allja_new.txt"      # 今回のコンテストの新規参加局
 read_acag_filename = './pref_acag.csv.txt'          # 市町村郡名とコードの対照表（.csvだとExcelで開いたときに先頭の 0 が消えるのを嫌って .txtにしてある)
-wait_sec = 0.5                                        # 過負荷をかけないようにするための、1件あたりのウェイト時間。3のとき4878件で5時間半程度。
+wait_sec = 3                                        # 過負荷をかけないようにするための、1件あたりのウェイト時間。3のとき4878件で5時間半程度。
 
 import requests, re, json, time, csv, datetime
 
