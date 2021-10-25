@@ -17,12 +17,14 @@ Ctestwin の「表示」メニューから「パーシャルチェック表示�
 ![](https://github.com/7m4mon/ctestwin.pck/blob/master/ctestwin.pck.png)
 
 ### 作り方
-1. JARLのコンテスト結果「書類提出局全リスト」ページの内容をサクラエディタにコピペする。
-1. キーマクロ `pickup_callsigns_from_contest_result_page.mac` をツール→マクロの読み込みして実行する。
-1. (複数コンテスト処理時)  `sort_and_delete_dupe_callsign.py` でダブリを削除する。(ついでに並び替え)
-1. `get_qth.py` で総務省データベースから住所を取得する。
-1. `get_cgnum.py` で住所と市郡区番号を紐付けて ctestwin.pck を作成する。
-1. (追記時) 1,2の手順を実施後、`pickup_uniq_callsign.py` でパーシャルチェックファイルにないコールサインを抽出し、4,5の手順を実行、3で並び替え
+* `update_ctestwin_pck.py` の上部に定義されているURL等を適宜編集して実行する。
+
+1. ~~JARLのコンテスト結果「書類提出局全リスト」ページの内容をサクラエディタにコピペする。~~
+1. ~~キーマクロ `pickup_callsigns_from_contest_result_page.mac` をツール→マクロの読み込みして実行する。~~
+1. ~~(複数コンテスト処理時)  `sort_and_delete_dupe_callsign.py` でダブリを削除する。(ついでに並び替え)~~
+1. ~~`get_qth.py` で総務省データベースから住所を取得する。~~
+1. ~~`get_cgnum.py` で住所と市郡区番号を紐付けて ctestwin.pck を作成する。~~
+1. ~~(追記時) 1,2の手順を実施後、`pickup_uniq_callsign.py` でパーシャルチェックファイルにないコールサインを抽出し、4,5の手順を実行、3で並び替え~~
 
 中身についての詳しい解説は、[別冊CQ ham radio QEX Japan No.37](https://shop.cqpub.co.jp/hanbai/books/MBC/MBC202012.html) をご参照ください。
 
