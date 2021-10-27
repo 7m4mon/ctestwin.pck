@@ -17,7 +17,7 @@ Ctestwin の「表示」メニューから「パーシャルチェック表示�
 ![](https://github.com/7m4mon/ctestwin.pck/blob/master/ctestwin.pck.png)
 
 ### 作り方
-* `update_ctestwin_pck.py` の上部に定義されているURL等を適宜編集して実行する。
+* `update_ctestwin_pck.py` の上部に定義されているURL等を適宜編集して実行します。
 
 1. ~~JARLのコンテスト結果「書類提出局全リスト」ページの内容をサクラエディタにコピペする。~~
 1. ~~キーマクロ `pickup_callsigns_from_contest_result_page.mac` をツール→マクロの読み込みして実行する。~~
