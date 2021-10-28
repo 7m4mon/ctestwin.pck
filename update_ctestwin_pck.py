@@ -1,7 +1,7 @@
 '''
 公開情報からパーシャルチェックリストを作成する
 
-updaet_ctestwin_pck.py
+update_ctestwin_pck.py
 2021.Oct.25 7M4MON
 
 2020年現在、日本のアマチュア無線局数はおよそ40万局ですが、
