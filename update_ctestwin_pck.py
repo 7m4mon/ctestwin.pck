@@ -32,12 +32,13 @@ update_ctestwin_pck.py
 免許状検索に登録されていない局はリストから削除する方針に変更しました。
 '''
 
-contest_result_url = "https://www.jarl.org/Japanese/1_Tanoshimo/1-1_Contest/all_ja/2021/entry.html"
-read_pck_filename = "./ctestwin_20210416.pck"       # 前回作成したパーシャルチェックファイル名
-write_pck_filename = "./ctestwin_20211024.pck"      # 今回作成するパーシャルチェックファイル名
-new_callsign_filename = "./2021_allja_new.txt"      # 今回のコンテストの新規参加局
+contest_result_url = "https://www.jarl.org/Japanese/1_Tanoshimo/1-1_Contest/6m/2021/entry.html"
+read_pck_filename = "./ctestwin_20211024.pck"       # 前回作成したパーシャルチェックファイル名
+write_pck_filename = "./ctestwin_20211122.pck"      # 今回作成するパーシャルチェックファイル名
+new_callsign_filename = "./2021_6m_new.txt"      # 今回のコンテストの新規参加局
 read_acag_filename = './pref_acag.csv.txt'          # 市町村郡名とコードの対照表（.csvだとExcelで開いたときに先頭の 0 が消えるのを嫌って .txtにしてある)
 wait_sec = 3                                        # 過負荷をかけないようにするための、1件あたりのウェイト時間。3のとき4878件で5時間半程度。
+pass_idx = 0                                        # 中断したときに飛ばすインデックス番号
 
 import requests, re, json, time, csv, datetime
 
@@ -180,18 +181,22 @@ if __name__ == '__main__':
     qrt = 0
     no_cgnum = 0
     for cs in uniq_cs_list:
-        callsign = cs.strip()   #改行やスペースの削除
-        print(str(i) + " " + callsign)
-        city_name = get_city(callsign)
-        if city_name != "" :
-            cgnum_str = get_cgnum(city_name)
-            print(callsign + ' ' + cgnum_str + ' '+ city_name , file=fw)
-            if cgnum_str == "" :
-                no_cgnum += 1   #表記ゆれや合併などで市町村名が変わっている
-        else:
-            qrt += 1            #廃局などでコールサインが総務省のデータベースにない
-        time.sleep(wait_sec)    #総務省のデータベースに過負荷をかけないようにちょっと待つ
-        i += 1
+        if pass_idx > i:
+            i += 1
+            pass
+        else :
+            callsign = cs.strip()   #改行やスペースの削除
+            print(str(i) + " " + callsign)
+            city_name = get_city(callsign)
+            if city_name != "" :
+                cgnum_str = get_cgnum(city_name)
+                print(callsign + ' ' + cgnum_str + ' '+ city_name , file=fw)
+                if cgnum_str == "" :
+                    no_cgnum += 1   #表記ゆれや合併などで市町村名が変わっている
+            else:
+                qrt += 1            #廃局などでコールサインが総務省のデータベースにない
+            time.sleep(wait_sec)    #総務省のデータベースに過負荷をかけないようにちょっと待つ
+            i += 1
     print('IDX:' + str(i) + ' QRT:' + str(qrt) + ' NIL:'+ str(no_cgnum) , file=fw)    #最後に結果を追記
     fw.close()
     stop_date = datetime.datetime.now()
